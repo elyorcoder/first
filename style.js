@@ -1,25 +1,52 @@
-alert("'Ottim digan umitdaman");
-
-const num = document.querySelector(".num");
-const sub = document.querySelector(".sub");
-const man = document.querySelector(".man");
-const bike = document.querySelector(".bike");
-const car = document.querySelector(".car");
-const plane = document.querySelector(".saml");
-
-const Sman = 3.6,
-  Sbike = 20.1,
-  Scar = 70,
-  Splane = 800;
-sub.addEventListener("click", (e) => {
-  e.preventDefault();
-  const value = num.value.trim();
-  if (!value) {
-    alert("iltimos 0 dan katta son kiriting");
+const card = document.querySelector(".card");
+const card1 = document.querySelector(".card1");
+const card2 = document.querySelector(".card2");
+const input = document.querySelector(".in");
+window.addEventListener("keydown", (e) => {
+  card2.innerHTML = `${e.keyCode}`;
+  if (e.key === " ") {
+    card1.innerHTML = `Space`;
   } else {
-    man.textContent = (value / Sman).toFixed(1).concat(" km");
-    bike.textContent = (value / Sbike).toFixed(3).concat(" km");
-    car.textContent = (value / Scar).toFixed(3).concat(" km");
-    plane.textContent = (value / Splane).toFixed(3).concat(" km");
+    card1.innerHTML = `${e.key}`;
   }
+  if (e.keyCode >= 48 && e.keyCode <= 57) {
+    card.innerHTML = `Number`;
+  } else if (
+    (e.keyCode >= 65 && e.keyCode <= 90) ||
+    (e.keyCode >= 97 && e.keyCode <= 122)
+  ) {
+    card.innerHTML = `Letter`;
+  } else {
+    card.innerHTML = `Symbol`;
+  }
+  Toastify({
+    text: "Spam!!!!!!!!!!!!",
+    duration: 500,
+    destination: "#",
+
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, crimson, red)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
+  Toastify({
+    text: "inputgani prosta tak koshganman!",
+    duration: 500,
+    newWindow: true,
+    destination: "#",
+
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "left", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
 });
